@@ -13,7 +13,7 @@ const films = [
   },
   {
     id: 2,
-    link: "abc",
+    link: "afewbc",
     title: "a",
     director: "b",
     genre: "c",
@@ -23,7 +23,7 @@ const films = [
   },
   {
     id: 3,
-    link: "abc",
+    link: "abfwec",
     title: "a",
     director: "b",
     genre: "c",
@@ -33,7 +33,7 @@ const films = [
   },
   {
     id: 4,
-    link: "abc",
+    link: "abfwvvvec",
     title: "a",
     director: "b",
     genre: "c",
@@ -52,7 +52,7 @@ export default function FilmsList() {
             <div key={film.id} className="col-3">
               <Card
                 title={film.title}
-                link={film.link}
+                link={`/films/${film.id}`}
                 director={film.director}
                 genre={film.genre}
                 release_year={film.release_year}

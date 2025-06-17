@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import DefaultLayout from "./layouts/defaultLayout";
 import HomePage from "./components/HomePage";
 import FilmsList from "./components/FilmsList";
+import ShowFilm from "./components/ShowFilm";
 
 function App() {
   return (
@@ -9,9 +10,8 @@ function App() {
       <Routes>
         <Route element={<DefaultLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="/films" element={<FilmsList />}>
-            {/* <Route path=":id" element={<ShowFilm />} /> */}
-          </Route>
+          <Route path="/films" element={<FilmsList />} />
+          <Route path="/films/:id" element={<ShowFilm />} />
         </Route>
       </Routes>
     </BrowserRouter>
