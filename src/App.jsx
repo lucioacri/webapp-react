@@ -10,8 +10,8 @@ function App() {
       <Routes>
         <Route element={<DefaultLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="/films" element={<FilmsList />} />
-          <Route path="/films/:id" element={<ShowFilm />} />
+          <Route path="/movies" element={<FilmsList />} />
+          <Route path="/movies/:id" element={<ShowFilm />} />
         </Route>
       </Routes>
     </BrowserRouter>

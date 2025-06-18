@@ -6,7 +6,7 @@ export default function ShowFilm() {
   return (
     <>
       <div className="container">
-        <h1>titolo {id}</h1>
+        <h1>titolo {id}: </h1>
         <p>descrizione</p>
         <p>voto</p>
         <p>immagine</p>

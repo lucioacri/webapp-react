@@ -6,7 +6,7 @@ export default function Header() {
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
-            Navbar
+            Sto Impazzendo
           </Link>
           <button
             className="navbar-toggler"
@@ -27,7 +27,7 @@ export default function Header() {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/films">
+                <NavLink className="nav-link" to="/movies">
                   Films
                 </NavLink>
               </li>
