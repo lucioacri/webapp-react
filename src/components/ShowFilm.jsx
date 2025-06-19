@@ -7,6 +7,10 @@ export default function ShowFilm() {
   const { id } = useParams();
   const [movie, setMovie] = useState();
 
+  const handleNewReview = (newReview) => {
+    setMovie({ ...movie, reviews: [...movie.reviews, newReview] });
+  };
+
   const fetchMovie = () => {
     axios.get(`http://localhost:3000/movies/${id}`).then((res) => {
       const { data } = res.data;
@@ -42,7 +46,7 @@ export default function ShowFilm() {
             </div>
           ))}
         </div>
-        <ReviewForm id={id} />
+        <ReviewForm id={id} onNewReview={handleNewReview} />
         <img src={movie.image} alt={movie.title}></img>
       </div>
     </>

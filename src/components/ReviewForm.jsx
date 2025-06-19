@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-export default function ReviewForm({ id }) {
+export default function ReviewForm({ id, onNewReview }) {
   const movieApiUrl = "http://localhost:3000/movies/" + id + "/reviews";
 
   const formBaseData = { name: "", vote: 1, text: "" };
@@ -10,6 +10,7 @@ export default function ReviewForm({ id }) {
   const fetchReviews = () => {
     axios.post(movieApiUrl, formData).then((res) => {
       console.log(res);
+      onNewReview({ ...formData, id: res.data.reviewId });
     });
   };
 
