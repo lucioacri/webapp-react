@@ -1,9 +1,12 @@
 import { useParams } from "react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import ReviewForm from "./ReviewForm";
+import { NewMovieContext } from "../contexts/NewMovieContext";
+import MovieLoader from "./MovieLoader";
 
 export default function ShowFilm() {
+  const { addMovie } = useContext(NewMovieContext);
   const { id } = useParams();
   const [movie, setMovie] = useState();
 
@@ -32,6 +35,7 @@ export default function ShowFilm() {
 
   return (
     <>
+      <MovieLoader />
       <div className="container">
         <h1>titolo: {movie.title}</h1>
         <p>descrizione: {movie.abstract}</p>
