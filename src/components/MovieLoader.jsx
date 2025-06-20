@@ -1,12 +1,14 @@
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { NewMovieContext } from "../contexts/NewMovieContext";
 
 export default function MovieLoader() {
+  const { addMovie } = useContext(NewMovieContext);
   const originalLoadData = {
     title: "",
     director: "",
     genre: "",
-    release_year: "",
+    release_year: 0,
     abstract: "",
     image: "",
   };
@@ -16,8 +18,12 @@ export default function MovieLoader() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLoadFormData(originalLoadData);
-    setShowForm(false);
+    axios.post("http://localhost:3000/movies", loadFormData).then((res) => {
+      const newMovie = { ...loadFormData, id: res.data.newFilmId };
+      addMovie(newMovie);
+      setLoadFormData(originalLoadData);
+      setShowForm(false);
+    });
   };
 
   const handleChange = (e) => {

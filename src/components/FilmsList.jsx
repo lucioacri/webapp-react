@@ -1,15 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Card from "./Card";
 import axios from "axios";
 import MovieLoader from "./MovieLoader";
+import { NewMovieContext } from "../contexts/NewMovieContext";
 
 export default function FilmsList() {
-  const [movies, setMovies] = useState([]);
+  const { movies, setAllMovies } = useContext(NewMovieContext);
 
   const fetchMovies = () => {
     axios.get("http://localhost:3000/movies").then((res) => {
-      const { movies } = res.data;
-      setMovies(movies);
+      const { movies: fetchedMovies } = res.data;
+      setAllMovies(fetchedMovies);
     });
   };
 
