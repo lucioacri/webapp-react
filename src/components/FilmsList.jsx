@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
 import axios from "axios";
+import MovieLoader from "./MovieLoader";
 
 export default function FilmsList() {
   const [movies, setMovies] = useState([]);
@@ -16,6 +17,7 @@ export default function FilmsList() {
 
   return (
     <>
+      <MovieLoader />
       <div className="container">
         <div className="row g-3">
           {movies.map((movie) => (
